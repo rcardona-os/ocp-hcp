@@ -241,7 +241,7 @@ oc debug node/$WORKER_NODE -n clusters-protocluster --context=protocluster -- ch
 - **Bond modes**: `active-backup` safest; `balance-rr` needs switch support
 - **VLAN support**: Add `vlan: {id: 10}` under `bond0.ipv4` if needed
 
-This configuration is **production-ready** and follows Red Hat's layered recommendations for HCP bare metal networking.[^1][^2][^3]
+This configuration is **production-ready** and follows Red Hat's layered recommendations for HCP bare metal networking.[^1][^2]
 
 <div align="center">⁂</div>
 
@@ -249,5 +249,4 @@ This configuration is **production-ready** and follows Red Hat's layered recomme
 
 [^2]: https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/hosted_control_planes/handling-machine-configuration-for-hosted-control-planes
 
-[^3]: image.jpg
 
