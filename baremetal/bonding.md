@@ -1,4 +1,4 @@
-# HCP: Bond for Worker Nodes - Complete Working Example
+# Bond for Worker Nodes on HCP
 
 This guide provides a **complete, tested configuration** for bonding worker node machine network interfaces (`eno4` + `eno5` → `bond0`) in OpenShift **Hosted Control Planes (HCP)** using a **hybrid approach** that combines `NodePool.networkConfig` (provisioning-time) + `MachineConfig` ConfigMap (persistence).
 
