@@ -20,7 +20,7 @@ Management Cluster (MCE/ACM)
 - **OCP**: 4.16+ (Agent platform)
 
 
-## 📋 Step-by-Step Implementation
+## Step-by-Step Implementation
 
 ### **Step 1: Label Your Worker Agents**
 
@@ -155,7 +155,7 @@ spec:
         matchLabels:
           cluster: protocluster
           role: worker
-  # 🎯 PROVISIONING-TIME: Applies during Agent bootstrap/install
+  # PROVISIONING-TIME: Applies during Agent bootstrap/install
   networkConfig:
     interfaces:
       - name: bond0
@@ -180,7 +180,7 @@ spec:
         type: ethernet
         state: down
   
-  # 🎯 POST-BOOTSTRAP: MCO enforcement for persistence
+  # POST-BOOTSTRAP: MCO enforcement for persistence
   config:
     - name: worker-bond-nmstate
 ```
@@ -224,7 +224,7 @@ oc debug node/$WORKER_NODE -n clusters-protocluster --context=protocluster -- ch
 ```
 
 
-## 🔍 Troubleshooting
+## Troubleshooting
 
 | Issue | Symptoms | Fix |
 | :-- | :-- | :-- |
@@ -233,7 +233,7 @@ oc debug node/$WORKER_NODE -n clusters-protocluster --context=protocluster -- ch
 | **Bond not persisting** | Bond works, disappears after reboot | Missing ConfigMap → Verify `oc get cm worker-bond-nmstate` |
 | **Agents not joining** | `replicas: 3/0` | Wrong labels → `oc get agent -l cluster=protocluster,role=worker` |
 
-## 📝 Pro Tips
+## Pro Tips
 
 - **Test first**: Deploy with `replicas: 1` on a single test worker
 - **Backup**: Save original Agent `infraEnv` before labeling
