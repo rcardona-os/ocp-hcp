@@ -2,21 +2,7 @@
 
 This guide provides a **complete, tested configuration** for bonding worker node machine network interfaces (`eno4` + `eno5` → `bond0`) in OpenShift **Hosted Control Planes (HCP)** using a **hybrid approach** that combines `NodePool.networkConfig` (provisioning-time) + `MachineConfig` ConfigMap (persistence).
 
-## 🎯 Why Hybrid Approach?
-
-| Method | When Applied | Pros | Cons |
-| :-- | :-- | :-- | :-- |
-| **networkConfig** | Agent install/bootstrap | Simple, immediate | May not persist after MCO |
-| **MachineConfig** | Post-bootstrap via MCO | Persistent, reboot-safe | Can cause drain/offline if alone |
-| **Hybrid** | Both phases | ✅ Reliable, production-ready | Slightly more YAML |
-
-**Your previous issues solved:**
-
-- ✅ ISO baking → Only bootstrap (fixed by `networkConfig`)
-- ✅ ConfigMap alone → Node offline (fixed by layering with `networkConfig`)
-
-
-## 🏗️ Architecture Assumptions
+## Architecture Assumptions
 
 ```
 Management Cluster (MCE/ACM)
